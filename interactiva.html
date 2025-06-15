@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta Interactiva</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #e9f5f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .quiz-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .question-block {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .question-block p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+        }
+        .options label {
+            display: block;
+            background-color: #f0f8ff;
+            border: 1px solid #cce7ff;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+        .options label:hover {
+            background-color: #d6f0ff;
+            border-color: #99d2ff;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Make radio button a bit bigger */
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #feedback {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .correct {
+            color: #28a745; /* Green for correct */
+        }
+        .incorrect {
+            color: #dc3545; /* Red for incorrect */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>Pregunta del Día 🧠</h2>
+        <div class="question-block">
+            <p>¿Cuál es la capital de Ecuador?</p>
+            <div class="options">
+                <label>
+                    <input type="radio" name="respuesta" value="guayaquil"> Guayaquil
+                </label>
+                <label>
+                    <input type="radio" name="respuesta" value="quito"> Quito
+                </label>
+                <label>
+                    <input type="radio" name="respuesta" value="cuenca"> Cuenca
+                </label>
+                <label>
+                    <input type="radio" name="respuesta" value="manta"> Manta
+                </label>
+            </div>
+        </div>
+        <button id="checkAnswer">Verificar Respuesta</button>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        document.getElementById('checkAnswer').addEventListener('click', function() {
+            const selectedOption = document.querySelector('input[name="respuesta"]:checked');
+            const feedbackDiv = document.getElementById('feedback');
+
+            if (selectedOption) {
+                if (selectedOption.value === 'quito') {
+                    feedbackDiv.textContent = '¡Correcto! 🎉';
+                    feedbackDiv.className = 'correct';
+                } else {
+                    feedbackDiv.textContent = 'Incorrecto. Intenta de nuevo. 🤔';
+                    feedbackDiv.className = 'incorrect';
+                }
+            } else {
+                feedbackDiv.textContent = 'Por favor, selecciona una opción.';
+                feedbackDiv.className = ''; // Clear any previous class
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pasatiempos - Steeven Proaño</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative; /* Necesario para posicionar el botón de regreso si lo quieres fijo */
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .hobby {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .hobby img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .hobby-content h2 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .hobby-content p {
+            line-height: 1.6;
+        }
+        /* Estilos para el botón de regreso */
+        .back-button {
+            display: inline-block; /* Para que el padding y margin funcionen bien */
+            background-color: #007bff; /* Color azul */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none; /* Quitar el subrayado del enlace */
+            margin-top: 20px; /* Espacio superior */
+            text-align: center;
+            transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+            float: left; /* Flotarlo a la izquierda para que no interrumpa el flujo del contenido principal */
+        }
+        .back-button:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+        }
+        /* Para asegurar que el botón esté visible y el contenido principal fluya correctamente */
+        .container::before {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="file:///C:/tarea%2001/pagina/proyecto.html" class="back-button">← Regresar</a>
+        
+        <h1>Mis Pasatiempos</h1>
+
+        <div class="hobby">
+            <img src="C:\tarea 01\pagina\pasatiempos\FB_IMG_1722128100182.jpg"alt="Imagen de Fútbol">
+            <div class="hobby-content">
+                <h2>Fútbol</h2>
+                <p>Me encanta jugar al fútbol con amigos. Es una excelente manera de mantenerme activo y disfrutar de la camaradería del deporte.</p>
+            </div>
+        </div>
+
+        <div class="hobby">
+            <img src="C:\tarea 01\pagina\pasatiempos\IMG-20220528-WA0029.jpg" alt="Imagen de Pesca">
+            <div class="hobby-content">
+                <h2>Pescar</h2>
+                <p>Disfruto mucho de la tranquilidad y la paciencia que requiere la pesca. Es un momento de relajación y conexión con la naturaleza.</p>
+            </div>
+        </div>
+
+        <div class="hobby">
+            <img src="C:\tarea 01\pagina\pasatiempos\FB_IMG_1711040860950.jpg" alt="Imagen de Moto">
+            <div class="hobby-content">
+                <h2>Andar en Moto</h2>
+                <p>Sentir la libertad de la carretera en mi moto es una de mis grandes pasiones. Disfruto de los paisajes y la emoción de cada viaje.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primera página web</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 48px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar li a:hover {
+            background-color: #555;
+            color: #f1f1f1;
+        }
+
+        .navbar li a:active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        main {
+            flex: 3;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        aside {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .profile-card {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+            margin-bottom: 15px;
+        }
+
+        .profile-card h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 1.5em;
+        }
+
+        .profile-card p {
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .aside-links ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .aside-links li a {
+            display: block;
+            padding: 10px 0;
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: color 0.2s;
+        }
+
+        .aside-links li a:hover {
+            color: #0056b3;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: auto;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .content-section {
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            max-width: 800px;
+        }
+
+        #biografia-section {
+            background-color: #ffe4e1;
+        }
+
+        #pasatiempos-section {
+            background-color: #e6ffe6;
+        }
+
+        #paises-capitales-section {
+            background-color: #e0f2f7;
+        }
+
+        #formulario-section {
+            background-color: #f9f9e6;
+        }
+
+        #quiz-section {
+            background-color: #f0f8ff;
+        }
+
+        .content-section h2 {
+            color: #4682b4;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        table {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fdfdff;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #contenido-interactivo-section {
+            background-color: #e0ffff;
+            border: 5px solid #4682b4;
+            padding: 20px;
+            margin: 40px auto;
+            width: 70%;
+            max-width: 900px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            position: relative;
+        }
+
+        #contenido-interactivo-section h2 {
+            color: #2f4f4f;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #contenido-interactivo-section p {
+            font-size: 20px;
+            color: #555;
+            max-width: 80%;
+            margin: 0 auto 30px auto;
+        }
+
+        .simple-slider {
+            width: 80%;
+            height: 60px;
+            background-color: #add8e6;
+            border: 2px dashed #008b8b;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #004d4d;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ccc;
+            margin: 50px auto;
+            width: 50%;
+        }
+
+        .quiz-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .quiz-container h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .question-block {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .question-block p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+            text-align: left;
+        }
+        .options label {
+            display: block;
+            background-color: #f0f8ff;
+            border: 1px solid #cce7ff;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+        .options label:hover {
+            background-color: #d6f0ff;
+            border-color: #99d2ff;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .quiz-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .quiz-container button:hover {
+            background-color: #0056b3;
+        }
+        #feedback {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+
+        @media only screen and (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar li {
+                width: 100%;
+            }
+
+            .navbar li a {
+                padding: 10px 15px;
+                border-bottom: 1px solid #444;
+            }
+
+            .navbar li:last-child a {
+                border-bottom: none;
+            }
+
+            .main-container {
+                flex-direction: column;
+                padding: 15px;
+                margin: 15px auto;
+            }
+
+            main {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            aside {
+                width: 100%;
+                position: static;
+                margin-top: 20px;
+            }
+
+            .content-section, #contenido-interactivo-section, table, form, .quiz-container {
+                width: 100%;
+                margin: 15px 0;
+                padding: 15px;
+            }
+
+            .content-section h2, #contenido-interactivo-section h2, .quiz-container h2 {
+                font-size: 28px;
+            }
+
+            .content-section p, .content-section ul, .question-block p {
+                padding: 0 10px;
+                font-size: 15px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+            thead {
+                display: none;
+            }
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+            td:nth-of-type(1):before { content: "País"; }
+            td:nth-of-type(2):before { content: "Capital"; }
+            td:nth-of-type(3):before { content: "Continente"; }
+
+            #contenido-interactivo-section {
+                min-height: 200px;
+            }
+
+            #contenido-interactivo-section h2 {
+                font-size: 30px;
+            }
+
+            #contenido-interactivo-section p {
+                font-size: 16px;
+            }
+
+            .simple-slider {
+                font-size: 20px;
+                height: 50px;
+            }
+
+            form input[type="text"],
+            form input[type="email"],
+            form input[type="number"],
+            form input[type="submit"],
+            .quiz-container button {
+                width: 100%;
+                max-width: none;
+            }
+
+            hr {
+                margin: 30px auto;
+            }
+            .options label {
+                font-size: 0.95em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mi Perfil Web</h1>
+        <div class="navbar">
+            <ul>
+                <li><a href="file:///C:/tarea%2001/pagina/biografia.html">Mi Biografía</a></li>
+                <li><a href="file:///C:/tarea%2001/pagina/pasatiempos.html">Mis Pasatiempos</a></li>
+                <li><a href="#paises-capitales-section">Países y Capitales</a></li>
+                <li><a href="#formulario-section">Formulario</a></li>
+                <li><a href="#contenido-interactivo-section">Contenido Interactivo</a></li>
+                <li><a href="#quiz-section">Quiz</a></li>
+                <li><a href="https://www.linkedin.com/in/steeven-proaño-3846722ab" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/steevenproa994/" target="_blank">Instagram</a></li>
+                <li><a href="https://github.com/new">github</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <div id="biografia-section" class="content-section">
+                <h2>Mi Biografía</h2>
+                <p>¡Hola! Soy Steeven Proaño, estudiante de la UBE de Ecuador y me apasiona la tecnología y el aprendizaje. Cuento con el título de Analista de Sistemas, obtenido en el Instituto Tecnológico Bolivariano (ITB), y siempre estoy buscando nuevas oportunidades para adquirir experiencia en roles afines a mi carrera.</p>
+                <p>Actualmente, resido en Guayaquil, Ecuador, y trabajo en una empresa de laboratorios farmacéuticos con alcance nacional.</p>
+            </div>
+
+            <hr>
+
+            <div id="pasatiempos-section" class="content-section">
+                <h2>Mis pasatiempos</h2>
+                <ul>
+                    <li>Jugar Fútbol</li>
+                    <li>Pescar </li>
+                    <li>Manejar moto </li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div id="paises-capitales-section" class="content-section">
+                <h2>Países y Capitales</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>País</th>
+                            <th>Capital</th>
+                            <th>Continente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="País">Ecuador</td>
+                            <td data-label="Capital">Quito</td>
+                            <td data-label="Continente">América del Sur</td>
+                        </tr>
+                        <tr>
+                            <td data-label="País">Francia</td>
+                            <td data-label="Capital">París</td>
+                            <td data-label="Continente">Europa</td>
+                        </tr>
+                        <tr>
+                            <td data-label="País">Venezuela</td>
+                            <td data-label="Capital">Caracas</td>
+                            <td data-label="Continente">América del Sur</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <div id="formulario-section" class="content-section">
+                <h2>Formulario de Contacto</h2>
+                <form action="#" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" min="1" max="120">
+
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+
+            <hr>
+
+            <div id="contenido-interactivo-section" class="custom-box">
+                <h2>Contenido Interactivo</h2>
+                <p>"El éxito no es la ausencia de fracasos, sino la persistencia para seguir adelante a pesar de ellos."</p>
+                <div class="simple-slider">
+                     ¡Explora y Disfruta! 
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="quiz-section" class="content-section quiz-container">
+                <h2>Pregunta del Día </h2>
+                <div class="question-block">
+                    <p>¿Cuál es la capital de Ecuador?</p>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="respuesta" value="guayaquil"> Guayaquil
+                        </label>
+                        <label>
+                            <input type="radio" name="respuesta" value="quito"> Quito
+                        </label>
+                        <label>
+                            <input type="radio" name="respuesta" value="cuenca"> Cuenca
+                        </label>
+                        <label>
+                            <input type="radio" name="respuesta" value="manta"> Manta
+                        </label>
+                    </div>
+                </div>
+                <button id="checkAnswer">Verificar Respuesta</button>
+                <div id="feedback"></div>
+            </div>
+        </main>
+
+        <aside>
+            <div class="profile-card">
+                <img src="C:\tarea 01\foto.jpg" alt="Imagen de perfil">
+                <h3>Steeven Proaño</h3>
+                <p>Analista de Sistemas | Estudiante UBE</p>
+                <p>Guayaquil, Ecuador</p>
+            </div>
+            <div class="aside-links">
+                <h3>Contacto Rápido</h3>
+                <ul>
+                    <li><a href="file:///C:/tarea%2001/pagina/correo.html">Correo Electrónico</a></li>
+                    <li><a href="tel:+593981981099">tel:+593981981099</a></li>
+                    <li><a href="https://www.linkedin.com/in/steeven-proaño-3846722ab" target="_blank">Mi LinkedIn</a></li>
+                    <li><a href="https://github.com/" target="_blank">Mi GitHub</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Steeven Proaño. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('checkAnswer').addEventListener('click', function() {
+            const selectedOption = document.querySelector('input[name="respuesta"]:checked');
+            const feedbackDiv = document.getElementById('feedback');
+
+            if (selectedOption) {
+                if (selectedOption.value === 'quito') {
+                    feedbackDiv.textContent = '¡Correcto! ';
+                    feedbackDiv.className = 'correct';
+                } else {
+                    feedbackDiv.textContent = 'Incorrecto. Intenta de nuevo. ';
+                    feedbackDiv.className = 'incorrect';
+                }
+            } else {
+                feedbackDiv.textContent = 'Por favor, selecciona una opción.';
+                feedbackDiv.className = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
